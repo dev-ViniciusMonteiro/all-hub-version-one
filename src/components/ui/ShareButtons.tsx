@@ -37,12 +37,6 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
     const encodedTitle = encodeURIComponent(title);
     const encodedUrl = encodeURIComponent(shareData.url);
 
-    const urls = {
-      whatsapp: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}`,
-      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
-      twitter: `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedUrl}`,
-    };
-
     if (platform === 'copy') {
       try {
         await navigator.clipboard.writeText(shareData.url);
@@ -54,48 +48,36 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
       return;
     }
 
-    window.open(urls[platform as keyof typeof urls], '_blank', 'width=600,height=400');
+    if (platform === 'whatsapp') {
+      window.open(`https://wa.me/?text=${encodedTitle}%20${encodedUrl}`, '_blank');
+    }
   };
 
   return (
-    <div className="flex items-center space-x-3">
-      <span className="text-sm text-gray-600">Compartilhar:</span>
+    <div className="flex flex-col md:flex-row md:items-center space-y-3 md:space-y-0 md:space-x-3">
+      <span className="text-sm text-newspaper-brown font-serif font-semibold">Compartilhar:</span>
       
-      <button
-        onClick={() => handleShare('whatsapp')}
-        className="flex items-center space-x-1 px-3 py-1 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
-      >
-        <span>📱</span>
-        <span className="text-sm">WhatsApp</span>
-      </button>
+      <div className="flex flex-wrap gap-3">
+        <button
+          onClick={() => handleShare('whatsapp')}
+          className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white text-sm font-serif font-semibold hover:bg-green-700 transition-colors"
+        >
+          <span>💬</span>
+          <span>WhatsApp</span>
+        </button>
 
-      <button
-        onClick={() => handleShare('facebook')}
-        className="flex items-center space-x-1 px-3 py-1 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors"
-      >
-        <span>📘</span>
-        <span className="text-sm">Facebook</span>
-      </button>
-
-      <button
-        onClick={() => handleShare('twitter')}
-        className="flex items-center space-x-1 px-3 py-1 bg-sky-500 text-white rounded hover:bg-sky-600 transition-colors"
-      >
-        <span>🐦</span>
-        <span className="text-sm">Twitter</span>
-      </button>
-
-      <button
-        onClick={() => handleShare('copy')}
-        className={`flex items-center space-x-1 px-3 py-1 rounded transition-colors ${
-          copied 
-            ? 'bg-green-500 text-white' 
-            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-        }`}
-      >
-        <span>{copied ? '✅' : '🔗'}</span>
-        <span className="text-sm">{copied ? 'Copiado!' : 'Copiar'}</span>
-      </button>
+        <button
+          onClick={() => handleShare('copy')}
+          className={`flex items-center space-x-2 px-4 py-2 text-sm font-serif font-semibold transition-colors ${
+            copied 
+              ? 'bg-green-600 text-white' 
+              : 'bg-newspaper-beige text-newspaper-ink hover:bg-newspaper-cream border border-newspaper-brown'
+          }`}
+        >
+          <span>{copied ? '✅' : '🔗'}</span>
+          <span>{copied ? 'Copiado!' : 'Copiar Link'}</span>
+        </button>
+      </div>
     </div>
   );
 }

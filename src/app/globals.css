@@ -8,40 +8,68 @@
   }
   
   body {
-    @apply text-gray-900 bg-white;
+    @apply text-newspaper-ink bg-newspaper-cream bg-paper-texture font-serif;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-semibold leading-tight;
+    @apply font-headline font-bold leading-tight text-newspaper-ink;
+  }
+  
+  .sidebar-title {
+    @apply font-headline font-bold text-xl text-newspaper-ink bg-newspaper-beige px-3 py-2 border-b-2 border-newspaper-red;
   }
   
   h1 {
-    @apply text-3xl md:text-4xl;
+    @apply text-4xl md:text-5xl;
   }
   
   h2 {
-    @apply text-2xl md:text-3xl;
+    @apply text-2xl md:text-3xl border-b-2 border-newspaper-brown/20 pb-2 mb-4;
   }
   
   h3 {
     @apply text-xl md:text-2xl;
   }
+  
+  p {
+    @apply leading-relaxed mb-4;
+  }
+  
+  a {
+    @apply text-newspaper-brown hover:text-newspaper-red transition-colors;
+  }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-primary-700 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2;
+    @apply bg-newspaper-brown text-newspaper-cream px-6 py-3 font-serif font-semibold hover:bg-newspaper-darkbrown transition-colors border-2 border-newspaper-brown uppercase tracking-wide text-sm;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-300 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+    @apply bg-newspaper-beige text-newspaper-ink px-6 py-3 font-serif font-semibold hover:bg-newspaper-cream transition-colors border-2 border-newspaper-brown uppercase tracking-wide text-sm;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden;
+    @apply bg-newspaper-cream border-2 border-newspaper-brown/30 shadow-lg overflow-hidden;
+  }
+  
+  .newspaper-article {
+    @apply bg-newspaper-cream border-2 border-newspaper-brown/20 p-6 mb-6 shadow-md;
+  }
+  
+  .newspaper-headline {
+    @apply font-headline font-bold text-2xl md:text-3xl text-newspaper-ink leading-tight mb-3 border-b border-newspaper-brown/30 pb-2;
+  }
+  
+  .newspaper-byline {
+    @apply text-sm text-newspaper-brown font-serif italic mb-4 border-l-4 border-newspaper-red pl-3;
   }
   
   .container-main {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .ad-space {
+    @apply bg-newspaper-beige border-2 border-dashed border-newspaper-brown/40 p-8 text-center text-newspaper-brown font-serif italic;
   }
 }

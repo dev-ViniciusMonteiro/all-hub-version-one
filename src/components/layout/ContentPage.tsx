@@ -37,59 +37,69 @@ export default async function ContentPage({ params, category }: Props) {
     <div className="container-main py-8">
       <Breadcrumbs items={breadcrumbs} />
       
-      <article className="max-w-4xl mx-auto">
-        <header className="mb-8">
-          <div className="flex items-center text-sm text-gray-500 mb-4">
+      <article className="max-w-5xl mx-auto">
+        <header className="mb-8 text-center border-b-4 border-newspaper-brown pb-8">
+          <div className="newspaper-byline text-center border-l-0 pl-0 mb-6">
             <time dateTime={content.publishedAt}>
-              {new Date(content.publishedAt).toLocaleDateString('pt-BR')}
+              {new Date(content.publishedAt).toLocaleDateString('pt-BR', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long', 
+                day: 'numeric'
+              }).toUpperCase()}
             </time>
-            <span className="mx-2">•</span>
-            <span>{content.readTime} min de leitura</span>
-            <span className="mx-2">•</span>
-            <span>Por {content.author}</span>
+            <span className="mx-3">•</span>
+            <span>POR {content.author.toUpperCase()}</span>
+            <span className="mx-3">•</span>
+            <span>{content.readTime} MINUTOS DE LEITURA</span>
           </div>
           
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="font-headline font-bold text-4xl md:text-6xl text-newspaper-ink mb-6 leading-tight">
             {content.title}
           </h1>
           
-          <p className="text-xl text-gray-600 mb-6">
+          <p className="text-xl md:text-2xl text-newspaper-brown mb-8 font-serif italic leading-relaxed max-w-4xl mx-auto">
             {content.excerpt}
           </p>
           
-          <div className="flex flex-wrap gap-2 mb-6">
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             {content.tags.map((tag) => (
-              <span key={tag} className="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">
+              <span key={tag} className="bg-newspaper-brown text-newspaper-cream px-4 py-2 text-sm font-serif font-semibold uppercase tracking-wide">
                 {tag}
               </span>
             ))}
           </div>
         </header>
 
-        <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-8">
-          <p className="text-gray-500">Espaço para anúncios (728x90)</p>
+        <div className="ad-space mb-8">
+          <p>PUBLICIDADE • ANÚNCIO (728x90)</p>
         </div>
 
-        <div className="prose prose-lg max-w-none">
+        <div className="newspaper-column text-lg leading-relaxed">
           <div dangerouslySetInnerHTML={{ __html: content.content }} />
         </div>
 
-        <div className="mt-8 pt-8 border-t border-gray-200">
-          <div className="mb-6">
+        <div className="mt-12 pt-8 border-t-4 border-newspaper-brown">
+          <div className="mb-8 text-center">
             <ShareButtons 
               title={content.title}
               url={`/${category}/${content.slug}`}
             />
           </div>
-          <div className="text-sm text-gray-500">
-            Publicado em {new Date(content.publishedAt).toLocaleDateString('pt-BR')}
-            {content.views && ` • ${content.views} visualizações`}
+          <div className="text-center text-newspaper-brown font-serif italic">
+            Publicado em {new Date(content.publishedAt).toLocaleDateString('pt-BR', {
+              weekday: 'long',
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+            {content.views && ` • Lido por ${content.views} pessoas`}
           </div>
         </div>
       </article>
 
-      <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center mt-8">
-        <p className="text-gray-500 text-sm">Anúncio (300x250)</p>
+      <div className="ad-space mt-12">
+        <p className="text-sm">PUBLICIDADE • ANÚNCIO (300x250)</p>
       </div>
     </div>
   );

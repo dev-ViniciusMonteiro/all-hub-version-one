@@ -42,18 +42,18 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
     <div className="container-main py-8">
       <Breadcrumbs items={breadcrumbs} />
       
-      <div className="mb-8">
-        <div className="flex items-center mb-4">
-          <span className="text-4xl mr-4">{category.icon}</span>
-          <h1 className="text-4xl font-bold text-gray-900">{category.name}</h1>
+      <div className="mb-8 text-center border-b-4 border-newspaper-brown pb-6">
+        <div className="flex items-center justify-center mb-4">
+          <span className="text-5xl mr-4">{category.icon}</span>
+          <h1 className="newspaper-headline text-5xl md:text-6xl border-none pb-0 mb-0">{category.name}</h1>
         </div>
-        <p className="text-lg text-gray-600 max-w-3xl">
+        <p className="text-lg text-newspaper-brown max-w-4xl mx-auto font-serif italic leading-relaxed">
           {category.description}
         </p>
       </div>
 
-      <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-8">
-        <p className="text-gray-500">Espaço para anúncios (728x90)</p>
+      <div className="ad-space mb-8">
+        <p>PUBLICIDADE • ANÚNCIO (728x90)</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -71,45 +71,55 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
               ))}
             </div>
           ) : (
-            <div className="space-y-6">
-              {contents.map((content) => (
-                <article key={content.id} className="card">
-                  <div className="p-6">
-                    <div className="flex items-center text-sm text-gray-500 mb-2">
-                      <time dateTime={content.publishedAt}>
-                        {new Date(content.publishedAt).toLocaleDateString('pt-BR')}
-                      </time>
-                      <span className="mx-2">•</span>
-                      <span>{content.readTime} min de leitura</span>
-                      {content.views && (
-                        <>
-                          <span className="mx-2">•</span>
-                          <span>{content.views} visualizações</span>
-                        </>
-                      )}
-                    </div>
-                    <h2 className="text-xl font-semibold text-gray-900 mb-2 hover:text-primary-600 transition-colors">
+            <div className="space-y-8">
+              {contents.map((content, index) => (
+                <article key={content.id} className="newspaper-article">
+                  <div className="newspaper-byline">
+                    <time dateTime={content.publishedAt}>
+                      {new Date(content.publishedAt).toLocaleDateString('pt-BR', {
+                        weekday: 'long',
+                        year: 'numeric', 
+                        month: 'long',
+                        day: 'numeric'
+                      })}
+                    </time>
+                    <span className="mx-2">•</span>
+                    <span>Por {content.author}</span>
+                    <span className="mx-2">•</span>
+                    <span>{content.readTime} min de leitura</span>
+                    {content.views && (
+                      <>
+                        <span className="mx-2">•</span>
+                        <span>{content.views} leitores</span>
+                      </>
+                    )}
+                  </div>
+                  
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                    <h2 className={`${index === 0 ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-headline font-bold text-newspaper-ink leading-tight hover:text-newspaper-red transition-colors flex-1`}>
                       <a href={`/${categorySlug}/${content.slug}`}>
                         {content.title}
                       </a>
                     </h2>
-                    <p className="text-gray-600 mb-4">
-                      {content.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center space-x-2">
-                        {content.tags.slice(0, 2).map((tag) => (
-                          <span key={tag} className="bg-primary-100 text-primary-800 px-2 py-1 rounded text-sm">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                      <a 
-                        href={`/${categorySlug}/${content.slug}`}
-                        className="text-primary-600 hover:text-primary-700 font-medium"
-                      >
-                        Ler mais →
-                      </a>
+                    <a 
+                      href={`/${categorySlug}/${content.slug}`}
+                      className="text-newspaper-brown hover:text-newspaper-red font-serif font-semibold uppercase tracking-wide text-xs border-b border-newspaper-brown hover:border-newspaper-red transition-colors mt-2 md:mt-0 md:ml-4 self-start"
+                    >
+                      Ler mais →
+                    </a>
+                  </div>
+                  
+                  <p className="text-newspaper-ink mb-6 text-lg leading-relaxed text-justify">
+                    {content.excerpt}
+                  </p>
+                  
+                  <div className="border-t border-newspaper-brown/20 pt-4">
+                    <div className="flex flex-wrap gap-2">
+                      {content.tags.slice(0, 3).map((tag) => (
+                        <span key={tag} className="bg-newspaper-brown text-newspaper-cream px-3 py-1 text-xs font-serif font-semibold uppercase tracking-wide">
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </article>
@@ -119,43 +129,46 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
         </div>
 
         <div className="space-y-6">
-          <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
-            <p className="text-gray-500 text-sm">Anúncio (300x250)</p>
+          <div className="ad-space">
+            <p className="text-sm">PUBLICIDADE<br/>ANÚNCIO (300x250)</p>
           </div>
 
-          <div className="card">
-            <div className="p-6">
-              <h3 className="text-lg font-semibold mb-4">Mais Populares</h3>
-              <div className="space-y-3">
-                {contents.filter(c => c.featured).slice(0, 3).map((content) => (
-                  <a key={content.id} href={`/${categorySlug}/${content.slug}`} className="block hover:text-primary-600 transition-colors">
-                    <h4 className="font-medium text-sm leading-tight">
-                      {content.title}
-                    </h4>
-                    <p className="text-xs text-gray-500 mt-1">
-                      {new Date(content.publishedAt).toLocaleDateString('pt-BR')}
-                    </p>
-                  </a>
-                ))}
-              </div>
+          <div className="newspaper-article">
+            <h3 className="sidebar-title mb-4 -mx-6 -mt-6 mb-6">MAIS LIDAS</h3>
+            <div className="space-y-4">
+              {contents.filter(c => c.featured).slice(0, 3).map((content, index) => (
+                <a key={content.id} href={`/${categorySlug}/${content.slug}`} className="block hover:text-newspaper-red transition-colors border-b border-newspaper-brown/20 pb-3">
+                  <div className="flex items-start space-x-3">
+                    <span className="bg-newspaper-red text-newspaper-cream w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold">
+                      {index + 1}
+                    </span>
+                    <div>
+                      <h4 className="font-serif font-semibold text-sm leading-tight text-newspaper-ink">
+                        {content.title}
+                      </h4>
+                      <p className="text-xs text-newspaper-brown mt-1 font-serif italic">
+                        {new Date(content.publishedAt).toLocaleDateString('pt-BR')}
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
 
-          <div className="card">
-            <div className="p-6">
-              <h3 className="text-lg font-semibold mb-4">Outras Categorias</h3>
-              <div className="space-y-2">
-                {categories.filter(c => c.slug !== categorySlug).slice(0, 4).map((cat) => (
-                  <a 
-                    key={cat.id}
-                    href={`/${cat.slug}`}
-                    className="flex items-center space-x-2 text-gray-600 hover:text-primary-600 transition-colors"
-                  >
-                    <span>{cat.icon}</span>
-                    <span className="text-sm">{cat.name}</span>
-                  </a>
-                ))}
-              </div>
+          <div className="newspaper-article">
+            <h3 className="sidebar-title mb-4 -mx-6 -mt-6 mb-6">OUTRAS SEÇÕES</h3>
+            <div className="space-y-3">
+              {categories.filter(c => c.slug !== categorySlug).slice(0, 5).map((cat) => (
+                <a 
+                  key={cat.id}
+                  href={`/${cat.slug}`}
+                  className="flex items-center space-x-3 text-newspaper-brown hover:text-newspaper-red transition-colors py-2 border-b border-newspaper-brown/10"
+                >
+                  <span className="text-lg">{cat.icon}</span>
+                  <span className="font-serif font-semibold text-sm uppercase tracking-wide">{cat.name}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>

@@ -1,10 +1,15 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
+import Pagination from '@/components/ui/Pagination';
+import SafeImage from '@/components/ui/SafeImage';
 import { generateBreadcrumbs } from '@/lib/seo';
 import { categories } from '@/data/categories';
 import { Content, Category } from '@/types';
+
+const ITEMS_PER_PAGE = 5;
 
 interface CategoryPageProps {
   categorySlug: string;
@@ -13,6 +18,8 @@ interface CategoryPageProps {
 export default function CategoryPage({ categorySlug }: CategoryPageProps) {
   const [contents, setContents] = useState<Content[]>([]);
   const [loading, setLoading] = useState(true);
+  const searchParams = useSearchParams();
+  const currentPage = parseInt(searchParams.get('page') || '1');
   
   const category = categories.find(c => c.slug === categorySlug);
   
@@ -37,6 +44,13 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
   if (!category) return null;
 
   const breadcrumbs = generateBreadcrumbs(`/${categorySlug}`);
+  
+  // Calcular paginação
+  const totalItems = contents.length;
+  const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const paginatedContents = contents.slice(startIndex, endIndex);
 
   return (
     <div className="container-main py-8">
@@ -71,68 +85,84 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
               ))}
             </div>
           ) : (
-            <div className="space-y-8">
-              {contents.map((content, index) => (
-                <article key={content.id} className="newspaper-article">
-                  <div className="newspaper-byline">
-                    <time dateTime={content.publishedAt}>
-                      {new Date(content.publishedAt).toLocaleDateString('pt-BR', {
-                        weekday: 'long',
-                        year: 'numeric', 
-                        month: 'long',
-                        day: 'numeric'
-                      })}
-                    </time>
-                    <span className="mx-2">•</span>
-                    <span>Por {content.author}</span>
-                    <span className="mx-2">•</span>
-                    <span>{content.readTime} min de leitura</span>
-                    {content.views && (
-                      <>
-                        <span className="mx-2">•</span>
-                        <span>{content.views} leitores</span>
-                      </>
-                    )}
-                  </div>
-                  
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                    <h2 className={`${index === 0 ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-headline font-bold text-newspaper-ink leading-tight hover:text-newspaper-red transition-colors flex-1`}>
-                      <a href={`/${categorySlug}/${content.slug}`}>
-                        {content.title}
-                      </a>
-                    </h2>
-                    <a 
-                      href={`/${categorySlug}/${content.slug}`}
-                      className="text-newspaper-brown hover:text-newspaper-red font-serif font-semibold uppercase tracking-wide text-xs border-b border-newspaper-brown hover:border-newspaper-red transition-colors mt-2 md:mt-0 md:ml-4 self-start"
-                    >
-                      Ler mais →
-                    </a>
-                  </div>
-                  
-                  <p className="text-newspaper-ink mb-6 text-lg leading-relaxed text-justify">
-                    {content.excerpt}
-                  </p>
-                  
-                  <div className="border-t border-newspaper-brown/20 pt-4">
-                    <div className="flex flex-wrap gap-2">
-                      {content.tags.slice(0, 3).map((tag) => (
-                        <span key={tag} className="bg-newspaper-brown text-newspaper-cream px-3 py-1 text-xs font-serif font-semibold uppercase tracking-wide">
-                          {tag}
-                        </span>
-                      ))}
+            <>
+              <div className="space-y-8">
+                {paginatedContents.map((content, index) => (
+                  <article key={content.id} className="newspaper-article">
+                    <div className="newspaper-byline">
+                      <time dateTime={content.publishedAt}>
+                        {new Date(content.publishedAt).toLocaleDateString('pt-BR', {
+                          weekday: 'long',
+                          year: 'numeric', 
+                          month: 'long',
+                          day: 'numeric'
+                        })}
+                      </time>
+                      <span className="mx-2">•</span>
+                      <span>Por {content.author}</span>
+                      <span className="mx-2">•</span>
+                      <span>{content.readTime} min de leitura</span>
+                      {content.views && (
+                        <>
+                          <span className="mx-2">•</span>
+                          <span>{content.views} leitores</span>
+                        </>
+                      )}
                     </div>
-                  </div>
-                </article>
-              ))}
-            </div>
+                    
+                    {content.image && (
+                      <div className="mb-4">
+                        <a href={`/${categorySlug}/${content.slug}`}>
+                          <SafeImage 
+                            src={content.image} 
+                            alt={content.title}
+                            className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                          />
+                        </a>
+                      </div>
+                    )}
+                    
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                      <h2 className={`${index === 0 ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-headline font-bold text-newspaper-ink leading-tight hover:text-newspaper-red transition-colors flex-1`}>
+                        <a href={`/${categorySlug}/${content.slug}`}>
+                          {content.title}
+                        </a>
+                      </h2>
+                      <a 
+                        href={`/${categorySlug}/${content.slug}`}
+                        className="text-newspaper-brown hover:text-newspaper-red font-serif font-semibold uppercase tracking-wide text-xs border-b border-newspaper-brown hover:border-newspaper-red transition-colors mt-2 md:mt-0 md:ml-4 self-start"
+                      >
+                        Ler mais →
+                      </a>
+                    </div>
+                    
+                    <p className="text-newspaper-ink mb-6 text-lg leading-relaxed text-justify">
+                      {content.excerpt}
+                    </p>
+                    
+                    <div className="border-t border-newspaper-brown/20 pt-4">
+                      <div className="flex flex-wrap gap-2">
+                        {content.tags.slice(0, 3).map((tag) => (
+                          <span key={tag} className="bg-newspaper-brown text-newspaper-cream px-3 py-1 text-xs font-serif font-semibold uppercase tracking-wide">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+              
+              <Pagination 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                basePath={`/${categorySlug}`}
+              />
+            </>
           )}
         </div>
 
         <div className="space-y-6">
-          <div className="ad-space">
-            <p className="text-sm">PUBLICIDADE<br/>ANÚNCIO (300x250)</p>
-          </div>
-
           <div className="newspaper-article">
             <h3 className="sidebar-title mb-4 -mx-6 -mt-6 mb-6">MAIS LIDAS</h3>
             <div className="space-y-4">
@@ -156,6 +186,10 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
             </div>
           </div>
 
+          <div className="ad-space">
+            <p className="text-sm">PUBLICIDADE<br/>ANÚNCIO (300x250)</p>
+          </div>
+
           <div className="newspaper-article">
             <h3 className="sidebar-title mb-4 -mx-6 -mt-6 mb-6">OUTRAS SEÇÕES</h3>
             <div className="space-y-3">
@@ -170,6 +204,10 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
                 </a>
               ))}
             </div>
+          </div>
+
+          <div className="ad-space">
+            <p className="text-sm">PUBLICIDADE<br/>ANÚNCIO (300x250)</p>
           </div>
         </div>
       </div>

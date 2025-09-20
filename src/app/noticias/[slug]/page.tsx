@@ -4,6 +4,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import ShareButtons from '@/components/ui/ShareButtons';
+import SafeImage from '@/components/ui/SafeImage';
 import { generateBreadcrumbs } from '@/lib/seo';
 import { Content } from '@/types';
 
@@ -101,6 +102,16 @@ export default async function NoticiaPage({ params }: Props) {
               </span>
             ))}
           </div>
+          
+          {content.image && (
+            <div className="mb-8">
+              <SafeImage 
+                src={content.image} 
+                alt={content.title}
+                className="w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
+          )}
         </header>
 
         <div className="bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg p-8 text-center mb-8">

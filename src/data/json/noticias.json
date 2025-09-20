@@ -1,5 +1,24 @@
 [
   {
+    "id": "1758381238001",
+    "title": "Notícia Atualizada Automaticamente",
+    "slug": "noticia-automatica-1758381238001",
+    "excerpt": "Esta notícia foi criada pelo script automático em 20/09/2025, 12:13:58",
+    "content": "Conteúdo gerado automaticamente pelo GitHub Actions...",
+    "category": "noticias",
+    "author": "Bot Automático",
+    "publishedAt": "2025-09-20T15:13:58.025Z",
+    "updatedAt": "2025-09-20T15:13:58.025Z",
+    "tags": [
+      "automático",
+      "script",
+      "github-actions"
+    ],
+    "readTime": 3,
+    "featured": false,
+    "views": 0
+  },
+  {
     "id": "1",
     "title": "Nova Lei de Proteção de Dados Entra em Vigor",
     "slug": "nova-lei-protecao-dados",
@@ -10,7 +29,11 @@
     "author": "João Silva",
     "publishedAt": "2024-01-15T10:00:00Z",
     "updatedAt": "2024-01-15T10:00:00Z",
-    "tags": ["legislação", "dados", "privacidade"],
+    "tags": [
+      "legislação",
+      "dados",
+      "privacidade"
+    ],
     "readTime": 5,
     "featured": true,
     "views": 1250
@@ -26,7 +49,129 @@
     "author": "Maria Santos",
     "publishedAt": "2024-01-14T15:30:00Z",
     "updatedAt": "2024-01-14T15:30:00Z",
-    "tags": ["economia", "brasil", "crescimento"],
+    "tags": [
+      "economia",
+      "brasil",
+      "crescimento"
+    ],
+    "readTime": 7,
+    "featured": false,
+    "views": 890
+  },
+  {
+    "id": "1758381238001",
+    "title": "Notícia Atualizada Automaticamente",
+    "slug": "noticia-automatica-1758381238001",
+    "excerpt": "Esta notícia foi criada pelo script automático em 20/09/2025, 12:13:58",
+    "content": "Conteúdo gerado automaticamente pelo GitHub Actions...",
+    "category": "noticias",
+    "author": "Bot Automático",
+    "publishedAt": "2025-09-20T15:13:58.025Z",
+    "updatedAt": "2025-09-20T15:13:58.025Z",
+    "tags": [
+      "automático",
+      "script",
+      "github-actions"
+    ],
+    "readTime": 3,
+    "featured": false,
+    "views": 0
+  },
+  {
+    "id": "1",
+    "title": "Nova Lei de Proteção de Dados Entra em Vigor",
+    "slug": "nova-lei-protecao-dados",
+    "excerpt": "Entenda as principais mudanças na legislação brasileira sobre proteção de dados pessoais.",
+    "content": "<h2>Nova Legislação Brasileira</h2><p>A nova Lei Geral de Proteção de Dados (LGPD) entrou em vigor trazendo mudanças significativas para empresas e cidadãos brasileiros.</p><h3>Principais Mudanças</h3><ul><li>Consentimento explícito para coleta de dados</li><li>Direito ao esquecimento</li><li>Portabilidade de dados</li><li>Multas de até 2% do faturamento</li></ul><p>As empresas têm prazo de 180 dias para se adequar às novas regras.</p>",
+    "image": "/images/lgpd-lei.jpg",
+    "category": "noticias",
+    "author": "João Silva",
+    "publishedAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z",
+    "tags": [
+      "legislação",
+      "dados",
+      "privacidade"
+    ],
+    "readTime": 5,
+    "featured": true,
+    "views": 1250
+  },
+  {
+    "id": "2",
+    "title": "Economia Brasileira Cresce 2.5% no Último Trimestre",
+    "slug": "economia-brasileira-cresce",
+    "excerpt": "Dados do IBGE mostram crescimento econômico acima das expectativas.",
+    "content": "<h2>Crescimento Econômico Surpreende</h2><p>O Instituto Brasileiro de Geografia e Estatística (IBGE) divulgou dados que mostram crescimento de 2.5% no PIB brasileiro no último trimestre.</p><h3>Setores em Destaque</h3><ul><li>Agronegócio: +4.2%</li><li>Indústria: +1.8%</li><li>Serviços: +2.1%</li></ul><p>O resultado superou as expectativas do mercado, que projetava crescimento de 1.8%.</p><blockquote>\"Este crescimento demonstra a resiliência da economia brasileira\" - Ministro da Economia</blockquote>",
+    "image": "/images/economia-brasil.jpg",
+    "category": "noticias",
+    "author": "Maria Santos",
+    "publishedAt": "2024-01-14T15:30:00Z",
+    "updatedAt": "2024-01-14T15:30:00Z",
+    "tags": [
+      "economia",
+      "brasil",
+      "crescimento"
+    ],
+    "readTime": 7,
+    "featured": false,
+    "views": 890
+  },
+  {
+    "id": "1758381238001",
+    "title": "Notícia Atualizada Automaticamente",
+    "slug": "noticia-automatica-1758381238001",
+    "excerpt": "Esta notícia foi criada pelo script automático em 20/09/2025, 12:13:58",
+    "content": "Conteúdo gerado automaticamente pelo GitHub Actions...",
+    "category": "noticias",
+    "author": "Bot Automático",
+    "publishedAt": "2025-09-20T15:13:58.025Z",
+    "updatedAt": "2025-09-20T15:13:58.025Z",
+    "tags": [
+      "automático",
+      "script",
+      "github-actions"
+    ],
+    "readTime": 3,
+    "featured": false,
+    "views": 0
+  },
+  {
+    "id": "1",
+    "title": "Nova Lei de Proteção de Dados Entra em Vigor",
+    "slug": "nova-lei-protecao-dados",
+    "excerpt": "Entenda as principais mudanças na legislação brasileira sobre proteção de dados pessoais.",
+    "content": "<h2>Nova Legislação Brasileira</h2><p>A nova Lei Geral de Proteção de Dados (LGPD) entrou em vigor trazendo mudanças significativas para empresas e cidadãos brasileiros.</p><h3>Principais Mudanças</h3><ul><li>Consentimento explícito para coleta de dados</li><li>Direito ao esquecimento</li><li>Portabilidade de dados</li><li>Multas de até 2% do faturamento</li></ul><p>As empresas têm prazo de 180 dias para se adequar às novas regras.</p>",
+    "image": "/images/lgpd-lei.jpg",
+    "category": "noticias",
+    "author": "João Silva",
+    "publishedAt": "2024-01-15T10:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z",
+    "tags": [
+      "legislação",
+      "dados",
+      "privacidade"
+    ],
+    "readTime": 5,
+    "featured": true,
+    "views": 1250
+  },
+  {
+    "id": "2",
+    "title": "Economia Brasileira Cresce 2.5% no Último Trimestre",
+    "slug": "economia-brasileira-cresce",
+    "excerpt": "Dados do IBGE mostram crescimento econômico acima das expectativas.",
+    "content": "<h2>Crescimento Econômico Surpreende</h2><p>O Instituto Brasileiro de Geografia e Estatística (IBGE) divulgou dados que mostram crescimento de 2.5% no PIB brasileiro no último trimestre.</p><h3>Setores em Destaque</h3><ul><li>Agronegócio: +4.2%</li><li>Indústria: +1.8%</li><li>Serviços: +2.1%</li></ul><p>O resultado superou as expectativas do mercado, que projetava crescimento de 1.8%.</p><blockquote>\"Este crescimento demonstra a resiliência da economia brasileira\" - Ministro da Economia</blockquote>",
+    "image": "/images/economia-brasil.jpg",
+    "category": "noticias",
+    "author": "Maria Santos",
+    "publishedAt": "2024-01-14T15:30:00Z",
+    "updatedAt": "2024-01-14T15:30:00Z",
+    "tags": [
+      "economia",
+      "brasil",
+      "crescimento"
+    ],
     "readTime": 7,
     "featured": false,
     "views": 890

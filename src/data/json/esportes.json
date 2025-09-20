@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "title": "Brasil Conquista Ouro no Vôlei Feminino",
+    "slug": "brasil-ouro-volei-feminino",
+    "excerpt": "Seleção brasileira vence final emocionante e conquista medalha de ouro histórica.",
+    "content": "<h2>Vitória Histórica do Vôlei Brasileiro</h2><p>A seleção brasileira feminina de vôlei conquistou a medalha de ouro em uma final emocionante que manteve o país inteiro grudado na TV.</p><h3>O Jogo</h3><p>Com sets disputados ponto a ponto, as meninas mostraram garra e determinação para superar as adversárias e trazer mais um ouro para o Brasil.</p>",
+    "image": "/images/volei-ouro.jpg",
+    "category": "esportes",
+    "author": "Carlos Esporte",
+    "publishedAt": "2024-01-15T20:00:00Z",
+    "updatedAt": "2024-01-15T20:00:00Z",
+    "tags": ["vôlei", "ouro", "brasil", "seleção"],
+    "readTime": 4,
+    "featured": true,
+    "views": 5200
+  }
+]

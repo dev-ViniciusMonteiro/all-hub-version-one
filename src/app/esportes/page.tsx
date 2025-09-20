@@ -3,15 +3,15 @@ import CategoryPage from '@/components/layout/CategoryPage';
 import { generateSEO } from '@/lib/seo';
 import { categories } from '@/data/categories';
 
-const category = categories.find(c => c.slug === 'noticias')!;
+const category = categories.find(c => c.slug === 'esportes')!;
 
 export const metadata: Metadata = {
-  title: `${category.name} - HubAll | Últimas Notícias do Brasil e Mundo`,
+  title: `${category.name} - HubAll | Últimas Notícias Esportivas`,
   description: category.description,
-  keywords: ['notícias', 'brasil', 'política', 'economia', 'sociedade', 'mundo'],
+  keywords: ['esportes', 'futebol', 'olimpíadas', 'campeonatos', 'notícias esportivas'],
 };
 
-export default function NoticiasPage() {
+export default function EsportesPage() {
   const seo = generateSEO.category(category);
 
   return (
@@ -22,7 +22,7 @@ export default function NoticiasPage() {
           __html: JSON.stringify(seo.structuredData)
         }}
       />
-      <CategoryPage categorySlug="noticias" />
+      <CategoryPage categorySlug="esportes" />
     </>
   );
 }

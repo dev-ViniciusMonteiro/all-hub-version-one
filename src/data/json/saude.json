@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "title": "10 Dicas para Manter a Saúde Mental em Dia",
+    "slug": "10-dicas-saude-mental",
+    "excerpt": "Estratégias práticas para cuidar da sua saúde mental no dia a dia.",
+    "content": "<h2>Cuidando da Saúde Mental</h2><p>A saúde mental é tão importante quanto a saúde física. Aqui estão 10 dicas essenciais:</p><h3>Dicas Práticas</h3><ol><li>Pratique exercícios regularmente</li><li>Mantenha uma alimentação equilibrada</li><li>Durma pelo menos 7-8 horas por noite</li><li>Pratique meditação ou mindfulness</li><li>Mantenha contato social</li></ol><p>Lembre-se: buscar ajuda profissional não é sinal de fraqueza, mas de autocuidado.</p>",
+    "image": "/images/saude-mental.jpg",
+    "category": "saude",
+    "author": "Dr. Carlos Lima",
+    "publishedAt": "2024-01-12T14:00:00Z",
+    "updatedAt": "2024-01-12T14:00:00Z",
+    "tags": ["saúde mental", "bem-estar", "qualidade de vida"],
+    "readTime": 6,
+    "featured": true,
+    "views": 1800
+  }
+]

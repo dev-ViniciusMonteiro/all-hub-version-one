@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "update-content": "node scripts/update-noticias.js"
   },
   "dependencies": {
     "next": "^14.0.0",

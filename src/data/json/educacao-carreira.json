@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "title": "Mercado de Trabalho 2024: Profissões Mais Procuradas",
+    "slug": "mercado-trabalho-2024-profissoes",
+    "excerpt": "Tecnologia, saúde e sustentabilidade lideram demanda por profissionais.",
+    "content": "<h2>Profissões em Alta</h2><p>O mercado de trabalho em 2024 apresenta oportunidades em setores específicos, com destaque para áreas tecnológicas.</p><h3>Top 5 Profissões</h3><ol><li>Desenvolvedor de IA</li><li>Especialista em Dados</li><li>Enfermeiro Especializado</li><li>Consultor ESG</li><li>UX Designer</li></ol>",
+    "image": "/images/profissoes-2024.jpg",
+    "category": "educacao-carreira",
+    "author": "Carlos RH",
+    "publishedAt": "2024-01-16T08:00:00Z",
+    "updatedAt": "2024-01-16T08:00:00Z",
+    "tags": ["carreira", "emprego", "profissões", "mercado"],
+    "readTime": 8,
+    "featured": true,
+    "views": 5100
+  }
+]

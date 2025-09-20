@@ -1,0 +1,18 @@
+[
+  {
+    "id": "1",
+    "title": "Novo Tratamento para Diabetes Tipo 2 Aprovado pela Anvisa",
+    "slug": "novo-tratamento-diabetes-anvisa",
+    "excerpt": "Medicamento inovador promete controlar glicemia com apenas uma dose semanal.",
+    "content": "<h2>Avanço no Tratamento do Diabetes</h2><p>A Anvisa aprovou um novo medicamento revolucionário para diabetes tipo 2 que precisa ser tomado apenas uma vez por semana.</p><h3>Benefícios do Novo Tratamento</h3><ul><li>Dose única semanal</li><li>Controle mais eficaz da glicemia</li><li>Menos efeitos colaterais</li><li>Melhora na qualidade de vida</li></ul><p>O medicamento já está disponível no SUS e planos de saúde.</p>",
+    "image": "/images/diabetes-tratamento.jpg",
+    "category": "saude-bem-estar",
+    "author": "Dr. Roberto Silva",
+    "publishedAt": "2024-01-16T09:00:00Z",
+    "updatedAt": "2024-01-16T09:00:00Z",
+    "tags": ["diabetes", "anvisa", "tratamento", "saúde"],
+    "readTime": 5,
+    "featured": true,
+    "views": 4300
+  }
+]

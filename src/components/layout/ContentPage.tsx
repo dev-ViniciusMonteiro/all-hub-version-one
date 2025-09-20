@@ -14,7 +14,16 @@ interface Props {
 
 async function getContent(slug: string, category: string): Promise<Content | null> {
   try {
-    const filePath = path.join(process.cwd(), `src/data/json/${category}.json`);
+    const fileMap: Record<string, string> = {
+      'opiniao-colunas': 'opiniao',
+      'curiosidades-tendencias': 'utilidades',
+      'especiais': 'curriculo',
+      'saude-bem-estar': 'saude-bem-estar',
+      'educacao-carreira': 'educacao-carreira'
+    };
+    
+    const fileName = fileMap[category] || category;
+    const filePath = path.join(process.cwd(), `src/data/json/${fileName}.json`);
     const fileContents = await fs.readFile(filePath, 'utf8');
     const data: Content[] = JSON.parse(fileContents);
     

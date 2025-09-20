@@ -10,6 +10,7 @@ export interface Category {
 export interface Article {
   id: string;
   title: string;
+  originalTitle?: string;
   slug: string;
   excerpt: string;
   content: string;
@@ -17,15 +18,18 @@ export interface Article {
   author: string;
   publishedAt: string;
   updatedAt: string;
-  image?: string;
+  image?: string | null;
   tags: string[];
   readTime: number;
   featured: boolean;
+  views?: number;
+  sourceUrl?: string;
 }
 
 export interface Content {
   id: string;
   title: string;
+  originalTitle?: string;
   slug: string;
   excerpt: string;
   content: string;
@@ -33,11 +37,12 @@ export interface Content {
   author: string;
   publishedAt: string;
   updatedAt: string;
-  image?: string;
+  image?: string | null;
   tags: string[];
   readTime: number;
   featured: boolean;
   views?: number;
+  sourceUrl?: string;
 }
 
 export interface SEOData {

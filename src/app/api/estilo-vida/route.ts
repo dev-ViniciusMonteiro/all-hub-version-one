@@ -1,12 +1,13 @@
 import { NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
+import { Content } from '@/types';
 
 export async function GET() {
   try {
     const filePath = path.join(process.cwd(), 'src/data/json/estilo-vida.json');
     const fileContents = await fs.readFile(filePath, 'utf8');
-    const data = JSON.parse(fileContents);
+    const data: Content[] = JSON.parse(fileContents);
     
     return NextResponse.json({
       success: true,

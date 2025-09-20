@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import Pagination from '@/components/ui/Pagination';
-import SafeImage from '@/components/ui/SafeImage';
+
 import { generateBreadcrumbs } from '@/lib/seo';
 import { categories } from '@/data/categories';
 import { Content, Category } from '@/types';
@@ -110,17 +110,7 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
                       )}
                     </div>
                     
-                    {content.image && (
-                      <div className="mb-4">
-                        <a href={`/${categorySlug}/${content.slug}`}>
-                          <SafeImage 
-                            src={content.image} 
-                            alt={content.title}
-                            className="w-full h-48 md:h-64 object-cover rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                          />
-                        </a>
-                      </div>
-                    )}
+
                     
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                       <h2 className={`${index === 0 ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'} font-headline font-bold text-newspaper-ink leading-tight hover:text-newspaper-red transition-colors flex-1`}>

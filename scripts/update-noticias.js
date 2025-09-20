@@ -68,7 +68,19 @@ function transformNewsToFormat(articles) {
     .map(article => {
       const id = Date.now().toString() + Math.random().toString(36).substr(2, 9);
       const slug = createSlug(article.title);
-      const content = `<p>${article.description}</p>${article.content ? `<p>${article.content.replace(/\[\+\d+ chars\]/, '')}</p>` : ''}`;
+      
+      // Usa a descrição que geralmente é mais completa
+      let fullContent = article.description;
+      
+      // Se houver conteúdo adicional, usa ele também
+      if (article.content && article.content !== article.description) {
+        const cleanContent = article.content.replace(/\[\+\d+ chars\].*$/, '').replace(/…$/, '').trim();
+        if (cleanContent.length > fullContent.length) {
+          fullContent = cleanContent;
+        }
+      }
+      
+      const content = `<p>${fullContent}</p>`;
       
       // Valida e trata a imagem
       let imageUrl = null;
@@ -80,7 +92,7 @@ function transformNewsToFormat(articles) {
         id,
         title: article.title,
         slug,
-        excerpt: article.description,
+        excerpt: fullContent,
         content,
         image: imageUrl,
         category: "noticias",
@@ -119,9 +131,14 @@ async function updateNoticias() {
       console.log('📄 Arquivo não existe, criando novo...');
     }
     
-    // Remove duplicatas baseado no slug
+    // Remove duplicatas baseado no título e slug
+    const existingTitles = new Set(currentData.map(item => item.title.toLowerCase()));
     const existingSlugs = new Set(currentData.map(item => item.slug));
-    const newArticles = novasNoticias.filter(article => !existingSlugs.has(article.slug));
+    
+    const newArticles = novasNoticias.filter(article => 
+      !existingSlugs.has(article.slug) && 
+      !existingTitles.has(article.title.toLowerCase())
+    ).slice(0, 10); // Máximo 10 notícias novas
     
     if (newArticles.length === 0) {
       console.log('ℹ️ Nenhuma notícia nova encontrada');

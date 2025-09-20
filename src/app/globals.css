@@ -72,4 +72,8 @@
   .ad-space {
     @apply bg-newspaper-beige border-2 border-dashed border-newspaper-brown/40 p-8 text-center text-newspaper-brown font-serif italic;
   }
+  
+  .newspaper-column {
+    @apply text-lg leading-relaxed;
+  }
 }

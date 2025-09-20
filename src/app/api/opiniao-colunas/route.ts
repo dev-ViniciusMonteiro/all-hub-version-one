@@ -5,7 +5,7 @@ import { Content } from '@/types';
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), 'src/data/json/entretenimento.json');
+    const filePath = path.join(process.cwd(), 'src/data/json/opiniao.json');
     const fileContents = await fs.readFile(filePath, 'utf8');
     const data: Content[] = JSON.parse(fileContents);
     

@@ -107,6 +107,7 @@ const allArticles = [...(g1.status === 'fulfilled' ? g1.value : [])];
       if (rewritten && rewritten.rewritten) {
         fullArticle.title = rewritten.title;
         fullArticle.content = rewritten.content;
+        fullArticle.excerpt = rewritten.excerpt || '';
         fullArticle.author = `Criado via IA em ${new Date().toLocaleDateString('pt-BR')}`;
         articlesWithContent.push(fullArticle);
       }

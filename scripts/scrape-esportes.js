@@ -243,9 +243,11 @@ async function updateEsportes() {
       if (rewritten && rewritten.rewritten) {
         fullArticle.title = rewritten.title;
         fullArticle.content = rewritten.content;
+        fullArticle.excerpt = rewritten.excerpt || '';
         fullArticle.author = `Criado via IA em ${new Date().toLocaleDateString('pt-BR')}`;
         console.log('✅ Artigo reescrito com sucesso');
       } else {
+        fullArticle.excerpt = '';
         fullArticle.author = `Criado via IA em ${new Date().toLocaleDateString('pt-BR')}`;
         console.log('⚠️ IA falhou, usando conteúdo original');
       }

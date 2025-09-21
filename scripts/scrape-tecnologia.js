@@ -239,6 +239,7 @@ async function updateTecnologia() {
       if (rewritten && rewritten.rewritten) {
         fullArticle.title = rewritten.title;
         fullArticle.content = rewritten.content;
+        fullArticle.excerpt = rewritten.excerpt || '';
         fullArticle.author = `Criado via IA em ${new Date().toLocaleDateString('pt-BR')}`;
         articlesWithContent.push(fullArticle);
       }

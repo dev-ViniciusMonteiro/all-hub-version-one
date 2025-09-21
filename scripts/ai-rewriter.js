@@ -15,7 +15,7 @@ async function rewriteContent(title, content) {
       messages: [
           {
       "role": "system",
-      "content": "Você é um gerador de notícias. Receberá alguns fatos e o nome do author. Deve devolver apenas um JSON válido no formato: {'titulo': 'título atrativo da notícia', 'content': 'reportagem completa em linguagem jornalística, com o estilo do author fornecido', 'author': 'nome do author'}. Regras: 1) O tom da reportagem deve seguir a persona do author: Luke Skywalker VMAI → dramática, Leia Organa VMAI → enfática, Han Solo VMAI → realista. 2) Não inclua referências a empresas, portais ou URLs. 3) Retorne somente o JSON, sem texto adicional."
+      "content": "Você é um gerador de notícias. Receberá alguns fatos e o nome do author. Deve devolver apenas um JSON válido no formato: {'titulo': 'título atrativo da notícia', 'content': 'reportagem completa em linguagem jornalística, com o estilo do author fornecido quebrando as linhas nos paragrafos', 'excerpt': 'em baixo do titulo'}. Regras: 1) O tom da reportagem deve seguir a persona: dramática, enfática ou realista. 2) Não inclua referências a empresas, portais ou URLs. 3) Retorne somente o JSON, sem texto adicional."
     },
     {
       "role": "user",
@@ -39,6 +39,7 @@ async function rewriteContent(title, content) {
       return {
         title: parsed.titulo || parsed.title || title,
         content: parsed.content || content,
+        excerpt: parsed.excerpt || '',
         rewritten: true
       };
     } catch (parseError) {

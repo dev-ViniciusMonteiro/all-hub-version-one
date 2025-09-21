@@ -38,7 +38,7 @@ export const generateSEO = {
     description: article.excerpt,
     keywords: article.tags,
     canonical: `https://huball.com.br/${article.category}/${article.slug}`,
-    ogImage: article.image,
+    ogImage: article.image || undefined,
     structuredData: {
       '@context': 'https://schema.org',
       '@type': 'Article',
@@ -50,7 +50,7 @@ export const generateSEO = {
       },
       datePublished: article.publishedAt,
       dateModified: article.updatedAt,
-      image: article.image,
+      image: article.image || undefined,
       publisher: {
         '@type': 'Organization',
         name: 'HubAll',

@@ -57,9 +57,9 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
       <Breadcrumbs items={breadcrumbs} />
       
       <div className="mb-8 text-center border-b-4 border-newspaper-brown pb-6">
-        <div className="flex items-center justify-center mb-4">
-          <span className="text-5xl mr-4">{category.icon}</span>
-          <h1 className="newspaper-headline text-5xl md:text-6xl border-none pb-0 mb-0">{category.name}</h1>
+        <div className="flex flex-col sm:flex-row items-center justify-center mb-4">
+          <span className="text-5xl mb-2 sm:mb-0 sm:mr-4">{category.icon}</span>
+          <h1 className="newspaper-headline text-3xl sm:text-5xl md:text-6xl border-none pb-0 mb-0 text-center break-words">{category.name}</h1>
         </div>
         <p className="text-lg text-newspaper-brown max-w-4xl mx-auto font-serif italic leading-relaxed">
           {category.description}

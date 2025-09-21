@@ -8,11 +8,16 @@
   }
   
   body {
-    @apply text-newspaper-ink bg-newspaper-cream font-serif;
+    font-family: Georgia, 'Times New Roman', serif;
+    background-color: #fefdf9;
+    color: #1a1a1a;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-headline font-bold leading-tight text-newspaper-ink;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    line-height: 1.25;
+    color: #1a1a1a;
   }
   
   h1 {
@@ -32,37 +37,68 @@
   }
   
   a {
-    @apply text-newspaper-brown hover:text-newspaper-red transition-colors;
+    color: #8b4513;
+    transition: color 0.2s;
+  }
+  
+  a:hover {
+    color: #dc2626;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-newspaper-brown text-newspaper-cream px-6 py-3 font-serif font-semibold hover:bg-newspaper-darkbrown transition-colors border-2 border-newspaper-brown uppercase tracking-wide text-sm;
+    background-color: #8b4513;
+    color: #fefdf9;
+    padding: 0.75rem 1.5rem;
+    font-family: Georgia, serif;
+    font-weight: 600;
+    border: 2px solid #8b4513;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-primary:hover {
+    background-color: #654321;
   }
   
   .btn-secondary {
-    @apply bg-newspaper-beige text-newspaper-ink px-6 py-3 font-serif font-semibold hover:bg-newspaper-cream transition-colors border-2 border-newspaper-brown uppercase tracking-wide text-sm;
+    background-color: #f7f3e9;
+    color: #1a1a1a;
+    padding: 0.75rem 1.5rem;
+    font-family: Georgia, serif;
+    font-weight: 600;
+    border: 2px solid #8b4513;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+    font-size: 0.875rem;
+    transition: background-color 0.2s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #fefdf9;
   }
   
   .card {
-    @apply bg-newspaper-cream border-2 border-newspaper-brown/30 shadow-lg overflow-hidden;
+    @apply bg-white border-2 border-amber-700/30 shadow-lg overflow-hidden;
   }
   
   .newspaper-article {
-    @apply bg-newspaper-cream border-2 border-newspaper-brown/20 p-6 mb-6 shadow-md;
+    @apply bg-white border-2 border-amber-700/20 p-6 mb-6 shadow-md;
   }
   
   .newspaper-headline {
-    @apply font-headline font-bold text-2xl md:text-3xl text-newspaper-ink leading-tight mb-3 border-b border-newspaper-brown/30 pb-2;
+    @apply font-serif font-bold text-2xl md:text-3xl text-gray-900 leading-tight mb-3 border-b border-amber-700/30 pb-2;
   }
   
   .newspaper-byline {
-    @apply text-sm text-newspaper-brown font-serif italic mb-4 border-l-4 border-newspaper-red pl-3;
+    @apply text-sm text-amber-700 font-serif italic mb-4 border-l-4 border-red-600 pl-3;
   }
   
   .sidebar-title {
-    @apply font-headline font-bold text-xl text-newspaper-ink bg-newspaper-beige px-3 py-2 border-b-2 border-newspaper-red;
+    @apply font-serif font-bold text-xl text-gray-900 bg-amber-50 px-3 py-2 border-b-2 border-red-600;
   }
   
   .container-main {
@@ -70,7 +106,7 @@
   }
   
   .ad-space {
-    @apply bg-newspaper-beige border-2 border-dashed border-newspaper-brown/40 p-8 text-center text-newspaper-brown font-serif italic;
+    @apply bg-amber-50 border-2 border-dashed border-amber-700/40 p-8 text-center text-amber-700 font-serif italic;
   }
   
   .newspaper-column {

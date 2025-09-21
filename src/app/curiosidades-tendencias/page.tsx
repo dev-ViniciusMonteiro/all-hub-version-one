@@ -3,9 +3,12 @@ import CategoryPage from '@/components/layout/CategoryPage';
 import { generateSEO } from '@/lib/seo';
 
 const category = {
+  id: 'curiosidades-tendencias',
   name: 'Curiosidades & Tendências',
   slug: 'curiosidades-tendencias',
-  description: 'Descubra curiosidades fascinantes e as últimas tendências em diversos assuntos'
+  description: 'Descubra curiosidades fascinantes e as últimas tendências em diversos assuntos',
+  icon: '🔍',
+  color: '#8b4513'
 };
 
 export const metadata: Metadata = {

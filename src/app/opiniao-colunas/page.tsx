@@ -3,9 +3,12 @@ import CategoryPage from '@/components/layout/CategoryPage';
 import { generateSEO } from '@/lib/seo';
 
 const category = {
+  id: 'opiniao-colunas',
   name: 'Opinião & Colunas',
   slug: 'opiniao-colunas',
-  description: 'Artigos de opinião, colunas e análises dos principais colunistas do país'
+  description: 'Conteúdos sobre opinião & colunas',
+  icon: '💭',
+  color: '#8b4513'
 };
 
 export const metadata: Metadata = {

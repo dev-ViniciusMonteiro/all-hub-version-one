@@ -3,9 +3,12 @@ import CategoryPage from '@/components/layout/CategoryPage';
 import { generateSEO } from '@/lib/seo';
 
 const category = {
+  id: 'especiais',
   name: 'Especiais',
   slug: 'especiais',
-  description: 'Conteúdos especiais, reportagens exclusivas e matérias aprofundadas'
+  description: 'Conteúdos sobre especiais',
+  icon: '⭐',
+  color: '#8b4513'
 };
 
 export const metadata: Metadata = {

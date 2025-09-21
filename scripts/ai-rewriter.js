@@ -28,7 +28,7 @@ async function rewriteContent(title, content) {
         'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY}`,
         'Content-Type': 'application/json'
       },
-      timeout: 30000
+      timeout: 50000
     });
 
     let aiResponse = response.data.choices[0].message.content.trim();

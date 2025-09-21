@@ -1,11 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
-    domains: ['images.unsplash.com', 'via.placeholder.com'],
-    formats: ['image/webp', 'image/avif'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com'
+      },
+      {
+        protocol: 'https', 
+        hostname: 'via.placeholder.com'
+      },
+      {
+        protocol: 'https',
+        hostname: '*.glbimg.com'
+      },
+      {
+        protocol: 'https',
+        hostname: 'jpimg.com.br'
+      }
+    ],
+    formats: ['image/webp', 'image/avif']
   },
   async rewrites() {
     return [

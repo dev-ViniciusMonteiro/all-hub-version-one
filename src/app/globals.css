@@ -15,10 +15,6 @@
     @apply font-headline font-bold leading-tight text-newspaper-ink;
   }
   
-  .sidebar-title {
-    @apply font-headline font-bold text-xl text-newspaper-ink bg-newspaper-beige px-3 py-2 border-b-2 border-newspaper-red;
-  }
-  
   h1 {
     @apply text-4xl md:text-5xl;
   }
@@ -63,6 +59,10 @@
   
   .newspaper-byline {
     @apply text-sm text-newspaper-brown font-serif italic mb-4 border-l-4 border-newspaper-red pl-3;
+  }
+  
+  .sidebar-title {
+    @apply font-headline font-bold text-xl text-newspaper-ink bg-newspaper-beige px-3 py-2 border-b-2 border-newspaper-red;
   }
   
   .container-main {

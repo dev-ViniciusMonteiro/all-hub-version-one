@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Breadcrumbs from '@/components/seo/Breadcrumbs';
 import Pagination from '@/components/ui/Pagination';
@@ -15,7 +15,7 @@ interface CategoryPageProps {
   categorySlug: string;
 }
 
-export default function CategoryPage({ categorySlug }: CategoryPageProps) {
+function CategoryPageContent({ categorySlug }: CategoryPageProps) {
   const [contents, setContents] = useState<Content[]>([]);
   const [loading, setLoading] = useState(true);
   const searchParams = useSearchParams();
@@ -202,5 +202,13 @@ export default function CategoryPage({ categorySlug }: CategoryPageProps) {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CategoryPage({ categorySlug }: CategoryPageProps) {
+  return (
+    <Suspense fallback={<div className="container-main py-8">Carregando...</div>}>
+      <CategoryPageContent categorySlug={categorySlug} />
+    </Suspense>
   );
 }

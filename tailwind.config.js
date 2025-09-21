@@ -6,6 +6,27 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    'bg-blue-500',
+    'bg-emerald-500', 
+    'bg-purple-500',
+    'bg-red-500',
+    'bg-pink-500',
+    'bg-indigo-500',
+    'bg-yellow-500',
+    'bg-gray-600',
+    'bg-orange-500',
+    'bg-amber-500',
+    'btn-primary',
+    'btn-secondary',
+    'card',
+    'container-main',
+    'ad-space',
+    'newspaper-article',
+    'newspaper-headline',
+    'newspaper-byline',
+    'sidebar-title'
+  ],
   theme: {
     extend: {
       colors: {
